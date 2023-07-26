@@ -49,19 +49,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto py-4 py-lg-0">
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/index"
-                >Home</a
-              >
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/index">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/login"
-                >login</a
-              >
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/login">login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/post"
-                >Posts</a
-              >
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/post">Posts</a>
             </li>
             <li class="nav-item">
               <a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact"
@@ -90,45 +84,45 @@
     </header>
     <!-- Main Content-->
     <div class="container mt-5">
-        <h1 class="text-center">Login Page</h1>
-        <form action="/login" method="post" class="mt-4">
-          <div class="mb-3">
-            <label for="username" class="form-label">Username:</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="form-control"
-              required
-            />
-          </div>
+      <h1 class="text-center">Login Page</h1>
+      <form action="/login" method="post" class="mt-4">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn btn-primary">Login as User</button>
+        </div>
       </form>
+      <br>
       <form action="/admin">
-          <div class="d-grid gap-2 col-6 mx-auto">
-            <input type="submit" value="Login as User" class="btn btn-primary" />
-            <button
-              type="submit"
-              formaction="/admin"
-              class="btn btn-secondary"
-            >
-              Login as Admin
-            </button>
-          </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" formaction="/admin" class="btn btn-secondary">
+            Login as Admin
+          </button>
+        </div>
       </form>
-        <p class="text-center mt-3">
-          Don't have an account? <a href="/signup">Sign Up</a> as a user.
-        </p>
-      </div>
+      <p class="text-center mt-3">
+        Don't have an account? <a href="/signup">Sign Up</a> as a user.
+      </p>
+    </div>
     <!-- Footer-->
     <footer class="border-top">
       <div class="container px-4 px-lg-5">

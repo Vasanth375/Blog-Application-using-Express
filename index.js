@@ -22,8 +22,6 @@ app.use(express.static("public"));
 
 const blog = require("./schema/blog");
 
-const insertUser = require("./controllers/insertUser");
-
 const login = require("./routes/login");
 const home = require("./routes/home");
 const signup = require("./routes/signup");
@@ -31,4 +29,4 @@ const signup = require("./routes/signup");
 app.use("/", home);
 app.use("/login", login);
 app.use("/signup", signup);
-app.listen(5000, () => console.log("Running at 3000"));
+app.listen(5000, () => console.log("Running at 5000"));
