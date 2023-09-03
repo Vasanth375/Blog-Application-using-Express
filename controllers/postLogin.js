@@ -1,4 +1,5 @@
 require("dotenv").config();
+const session = require("express-session");
 const bcrypt = require("bcrypt");
 const userSignupSchema = require("../schema/user");
 const jwt = require("jsonwebtoken");
@@ -35,9 +36,11 @@ const postLogin = async (req, res) => {
       // fs.writeFileSync(tokenFilePath, JSON.stringify(token), "utf-8");
 
       // res.json({ access: access_token });
+      req.session.isAuth = true;
+      req.session.usermail = username;
       res.redirect("/dashboard"); // Use absolute path for the redirect
     } else {
-      res.redirect("/#"); // Use absolute path for the redirect
+      res.redirect("/login"); // Use absolute path for the redirect
     }
   } catch (ex) {
     console.log(ex);

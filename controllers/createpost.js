@@ -1,25 +1,42 @@
+const bodyParser = require("body-parser");
+const path = require("path");
+const fs = require("fs");
+const mongoose = require("mongoose");
+const blogSchema = require("../schema/blog");
+
 const multer = require("multer");
 
+// SET STORAGE
+var storage = multer.diskStorage({
+  destination: "uploads",
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+var upload = multer({ storage: storage }).single("myImage");
+
 const createpost = (req, res) => {
-  // Set up storage for multer
-  const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "./public/uploads"); // Define the directory where uploaded files will be stored
-    },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-      cb(
-        null,
-        file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname)
-      );
-    },
+  upload(req, res, (err) => {
+    if (err) {
+      console.log("Error:", err);
+    } else {
+      const newImage = new blogSchema({
+        blogName: req.body.title,
+        description: req.body.content,
+        createdAt: Date.now(),
+        img: {
+          data: req.file.filename,
+          contentType: "image/*",
+        },
+      });
+
+      newImage
+        .save()
+        .then(() => res.send("Successfully Uploaded"))
+        .catch(() => console.log("Error"));
+    }
   });
-
-  // Create the multer middleware
-  const upload = multer({ storage: storage });
-
-  console.log(req.body.title);
-  res.send("Data stored");
 };
 
-module.exports = createpost;
+module.exports = { createpost, upload };

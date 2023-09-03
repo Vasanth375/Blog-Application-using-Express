@@ -1,5 +1,5 @@
 const posts = (req, res) => {
-  res.render("posts");
+  res.render("createpost");
 };
 
 module.exports = posts;

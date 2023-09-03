@@ -91,10 +91,10 @@
     <!-- Main Content-->
     <div class="container">
         <h1>Create a New Post</h1>
-        <form action="/dashboard/createpost" method="post">
+        <form action="/dashboard/createpost" enctype="multipart/form-data" method="post">
           <div class="mb-3">
             <label for="image" class="form-label">Upload Cover Page for your Blog:</label>
-            <input type="file" id="image" name="image" class="form-control" accept="image/*">
+            <input type="file" id="image" name="myImage" class="form-control" accept="image/*">
           </div>
           <div class="mb-3">
             <label for="title" class="form-label">Title:</label>
