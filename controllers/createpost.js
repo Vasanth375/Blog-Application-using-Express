@@ -25,18 +25,24 @@ const createpost = (req, res) => {
         blogName: req.body.title,
         description: req.body.content,
         createdAt: Date.now(),
+        createdBy: req.session.username,
         img: {
           data: req.file.filename,
-          contentType: "image/*",
+          contentType: "image/jpg/png",
         },
       });
 
       newImage
         .save()
-        .then(() => res.send("Successfully Uploaded"))
+        .then(() => {
+          // res.send("Successfully Uploaded");
+          const a = true;
+        })
         .catch(() => console.log("Error"));
     }
   });
+
+  res.redirect("/dashboard/successUploaded")
 };
 
 module.exports = { createpost, upload };

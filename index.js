@@ -15,12 +15,11 @@ dotenv.config();
 const app = express();
 
 // Your MongoDB connection URI
-const mongoURI = "mongodb://127.0.0.1:27017/blog";
-
+const mongoURI =
+  "mongodb+srv://Vasanth:yfj72syQ672j3xHH@cluster0.jylzdm0.mongodb.net/?retryWrites=true&w=majority";
 dbconnect(mongoURI);
 
 app.use(methodOverride("_method"));
-
 app.use(cookieparser());
 
 // Parse application/x-www-form-urlencoded
@@ -79,6 +78,9 @@ const dashboard = require("./routes/dashboard");
 const posts = require("./routes/posts");
 const createpost = require("./routes/createpost");
 const logout = require("./routes/logout");
+const postuploaded = require("./routes/postuploaded");
+const view_all_posts = require("./routes/view-all-posts");
+const view_blog = require("./routes/view-blog");
 
 app.use("/", home);
 app.use("/login", loginAuth, login);
@@ -89,5 +91,8 @@ app.use("/signup", loginAuth, signup);
 app.use("/dashboard", isAuth, dashboard);
 app.use("/dashboard/post", isAuth, posts);
 app.use("/dashboard/createpost", isAuth, createpost);
+app.use("/dashboard/successUploaded", isAuth, postuploaded);
+app.use("/dashboard/allPosts", isAuth, view_all_posts);
+app.use("/dashboard/view-blog", view_blog);
 
 app.listen(5000, () => console.log("Running at 5000"));

@@ -1,7 +1,7 @@
-const home = require("../controllers/home");
-
 const express = require("express");
 const router = express.Router();
-router.get("/", home);
+const view_blog = require("../controllers/view-blog");
+
+router.get("/", view_blog);
 
 module.exports = router;
