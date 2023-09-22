@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
-
+app.use('/uploads', express.static('uploads'));
 const store = new mongosession({
   uri: mongoURI,
   collection: "mysession",
@@ -94,5 +94,6 @@ app.use("/dashboard/createpost", isAuth, createpost);
 app.use("/dashboard/successUploaded", isAuth, postuploaded);
 app.use("/dashboard/allPosts", isAuth, view_all_posts);
 app.use("/dashboard/view-blog", view_blog);
+app.use('/uploads/', isAuth)
 
 app.listen(5000, () => console.log("Running at 5000"));

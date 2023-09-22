@@ -10,7 +10,10 @@ const multer = require("multer");
 var storage = multer.diskStorage({
   destination: "uploads",
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + "-" + Date.now());
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
   },
 });
 
@@ -42,7 +45,7 @@ const createpost = (req, res) => {
     }
   });
 
-  res.redirect("/dashboard/successUploaded")
+  res.redirect("/dashboard/successUploaded");
 };
 
 module.exports = { createpost, upload };
