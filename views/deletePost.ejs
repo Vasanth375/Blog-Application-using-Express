@@ -89,43 +89,6 @@
       </div>
     </header>
     <!-- Main Content-->
-    <div class="container mt-5">
-      <h1 class="mb-10">Blog Details</h1>
-      <div class="row">
-        <div class="col-md-20">
-          <div class="card mb-15">
-            <img
-              src="/uploads/<%= blog.img.data %>"
-              class="card-img-top"
-              alt="Blog Image"
-            />
-            <div class="card-body">
-              <h5 class="card-title"><%= blog.blogName %></h5>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  Written By: <%= blog.createdBy %>
-                </li>
-                <li class="list-group-item">
-                  At: <%= blog.createdAt.toDateString() %>
-                </li>
-              </ul>
-              <p class="card-text"><%= blog.description %></p>
-            </div>
-          </div>
-          <hr />
-          <a
-            href="/dashboard/update-blog?id=<%= blog.id %>"
-            class="btn btn-primary"
-            >Update</a
-          >
-          <a
-            href="/dashboard/deletepost?id=<%= blog.id %>"
-            class="btn btn-danger"
-            >Delete</a
-          >
-        </div>
-      </div>
-    </div>
 
     <!-- Footer-->
     <footer class="border-top">

@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
-app.use('/uploads', express.static('uploads'));
+app.use("/uploads", express.static("uploads"));
 const store = new mongosession({
   uri: mongoURI,
   collection: "mysession",
@@ -69,8 +69,6 @@ const loginAuth = (req, res, next) => {
   }
 };
 
-const blog = require("./schema/blog");
-
 const login = require("./routes/login");
 const home = require("./routes/home");
 const signup = require("./routes/signup");
@@ -81,6 +79,8 @@ const logout = require("./routes/logout");
 const postuploaded = require("./routes/postuploaded");
 const view_all_posts = require("./routes/view-all-posts");
 const view_blog = require("./routes/view-blog");
+const updateBlog = require("./routes/userupdate");
+const deletepost = require("./routes/deletePost");
 
 app.use("/", home);
 app.use("/login", loginAuth, login);
@@ -89,11 +89,11 @@ app.use("/logout", logout);
 app.use("/signup", loginAuth, signup);
 
 app.use("/dashboard", isAuth, dashboard);
-app.use("/dashboard/post", isAuth, posts);
-app.use("/dashboard/createpost", isAuth, createpost);
+app.use("/dashboard/post", isAuth, view_all_posts);
+app.use("/dashboard/createpost", isAuth, posts);
 app.use("/dashboard/successUploaded", isAuth, postuploaded);
-app.use("/dashboard/allPosts", isAuth, view_all_posts);
-app.use("/dashboard/view-blog", view_blog);
-app.use('/uploads/', isAuth)
+app.use("/dashboard/view-blog", isAuth, view_blog);
+app.use("/dashboard/update-blog", isAuth, updateBlog);
+app.use("/dashboard/deletepost", isAuth, deletepost);
 
 app.listen(5000, () => console.log("Running at 5000"));

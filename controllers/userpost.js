@@ -1,4 +1,5 @@
 const posts = (req, res) => {
+
   res.render("createpost");
 };
 

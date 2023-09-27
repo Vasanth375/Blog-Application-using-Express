@@ -38,8 +38,8 @@ const createpost = (req, res) => {
       newImage
         .save()
         .then(() => {
-          // res.send("Successfully Uploaded");
-          const a = true;
+          console.log("Successfully Uploaded");
+          // const a = true;
         })
         .catch(() => console.log("Error"));
     }

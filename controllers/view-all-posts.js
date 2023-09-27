@@ -8,8 +8,11 @@ const view_all_post = async (req, res) => {
   const blogs = await blog.find({
     createdBy: only_logged_user,
   });
-  res.set('Content-Type', 'text/html'); // Change 'image/jpeg' to the correct content type
-  res.render("viewPosts", { blogs: blogs });
+  // to display newly created blog in the first place
+  blogs.reverse();
+
+  // res.set('Content-Type', 'text/html'); // Change 'image/jpeg' to the correct content type
+  res.render("viewPosts", { blogs: blogs, isExist: blogs.length !== 0 });
 };
 
 module.exports = view_all_post;

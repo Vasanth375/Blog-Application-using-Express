@@ -90,13 +90,23 @@
     </header>
     <!-- Main Content-->
     <div class="container mt-5">
-      <h1 class="mb-4">Your Blogs</h1>
+      <h1 class="mb-4">
+        Your Blogs
+        <a href="/dashboard/createpost" class="btn btn-primary"
+          >Create a Blog</a
+        >
+      </h1>
       <div class="row">
-        <!-- blog.img.data ../uploads/myImage-1694773990177 -->
-        <% blogs.forEach((blog) => { %>
+        <% if(isExist) { %> <% blogs.forEach((blog) => { %>
         <div class="col-md-4 mb-4">
           <div class="card">
-            <img src="/uploads/<%= blog.img.data %>" height="240px" width="500px" class="card-img-top" alt="Blog Image" />
+            <img
+              src="/uploads/<%= blog.img.data %>"
+              height="240px"
+              width="500px"
+              class="card-img-top"
+              alt="Blog Image"
+            />
 
             <div class="card-body">
               <h5 class="card-title"><%= blog.blogName %></h5>
@@ -109,7 +119,14 @@
             </div>
           </div>
         </div>
-        <% }); %>
+        <% }); %> <% } else { %>
+        <!-- blog.img.data ../uploads/myImage-1694773990177 -->
+        <div class="container">
+          <div class="alert alert-info mt-3">
+            <p>No blogs exist.</p>
+          </div>
+        </div>
+        <% } %>
       </div>
     </div>
     <!-- Footer-->
