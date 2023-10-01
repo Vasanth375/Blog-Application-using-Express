@@ -15,7 +15,7 @@ const postLogin = async (req, res) => {
   const CheckUser = await userSignupSchema.findOne({ name: username });
 
   if (!CheckUser) {
-    return res.send("User not Exist"); // Return the response to avoid double response
+    return res.redirect("/login"); // Return the response to avoid double response
   }
 
   try {
