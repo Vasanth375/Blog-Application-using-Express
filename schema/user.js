@@ -6,9 +6,4 @@ const userSchema = new mongoose.Schema({
   email: String,
 });
 
-const blogs = new mongoose.Schema({
-    blogName: String,
-    description: String
-})
-
 module.exports = mongoose.model("Users", userSchema)

@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>BlogSphere: Boundless Knowledge</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../public/assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
@@ -33,7 +33,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="/">BlogSphere</a>
+        <a class="navbar-brand" href="/dashboard">BlogSphere</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -52,62 +52,20 @@
               <a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/login">login</a>
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/dashboard/post"
+                >Posts</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/dashboard/profile"
+                >profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-lg-3 py-3 py-lg-4" href="/logout">Logout</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- Page Header-->
-    <header
-      class="masthead"
-      style="background-image: url('../assets/img/home-bg.jpg')"
-    >
-      <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-md-10 col-lg-8 col-xl-7">
-            <div class="site-heading">
-              <h1>BlogSphere</h1>
-              <span class="subheading">Boundless Knowledge</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- Main Content-->
-    <div class="container mt-5">
-      <h1 class="text-center">Login Page</h1>
-      <form action="/login" method="post" class="mt-4">
-        <div class="mb-3">
-          <label for="username" class="form-label">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            class="form-control"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-            required
-          />
-        </div>
-
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" class="btn btn-primary">Login</button>
-        </div>
-      </form>
-      <br />
-      <!-- <form action="/admin" method="post">
-      </form> -->
-      <p class="text-center mt-3">
-        Don't have an account? <a href="/signup">Sign Up</a> as a user.
-      </p>
-    </div>
-<%- include('footer') -%>

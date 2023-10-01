@@ -47,11 +47,19 @@ app.use(
     cookie: {
       //   secure: true,
       //   httpOnly: true,
-      expires: 1000 * 60 * 60 * 24,
+      expires: 1000 * 60 * 60,
     },
     store: store,
   })
 );
+
+const adminAuth = (req, res, next) => {
+  if (req.session.adminlogin) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
 
 const isAuth = (req, res, next) => {
   if (req.session.isAuth) {
@@ -81,7 +89,9 @@ const view_all_posts = require("./routes/view-all-posts");
 const view_blog = require("./routes/view-blog");
 const updateBlog = require("./routes/userupdate");
 const deletepost = require("./routes/deletePost");
-
+const profile = require("./routes/profile");
+const admindashboard = require("./routes/admindasboard");
+const postview = require("./routes/postview")
 app.use("/", home);
 app.use("/login", loginAuth, login);
 app.use("/logout", logout);
@@ -95,5 +105,9 @@ app.use("/dashboard/successUploaded", isAuth, postuploaded);
 app.use("/dashboard/view-blog", isAuth, view_blog);
 app.use("/dashboard/update-blog", isAuth, updateBlog);
 app.use("/dashboard/deletepost", isAuth, deletepost);
+app.use("/dashboard/profile", isAuth, profile);
 
+app.use("/admindashboard", adminAuth, admindashboard);
+
+app.use("/postview", postview);
 app.listen(5000, () => console.log("Running at 5000"));

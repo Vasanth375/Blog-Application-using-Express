@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>BlogSphere: Boundless Knowledge</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../public/assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
@@ -65,13 +65,13 @@
     <!-- Page Header-->
     <header
       class="masthead"
-      style="background-image: url('../assets/img/home-bg.jpg')"
+      style="background-image: url('/uploads/<%= blog.img.data %>')"
     >
       <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7">
             <div class="site-heading">
-              <h1>BlogSphere</h1>
+              <h1><%= blog.blogName %></h1>
               <span class="subheading">Boundless Knowledge</span>
             </div>
           </div>
@@ -80,24 +80,28 @@
     </header>
     <!-- Main Content-->
     <div class="container mt-5">
-        <h1 class="text-center">Sign Up Page</h1>
-        <form action="signup" method="post" class="mt-4">
-          <div class="mb-3">
-            <label for="username" class="form-label">Username:</label>
-            <input type="text" id="username" name="username" class="form-control" required>
+      <!-- <h1 class="mb-10">Post</h1> -->
+      <div class="row">
+        <div class="col-md-20">
+          <div class="card mb-15">
+            <!-- <img
+              src="/uploads/<%= blog.img.data %>"
+              class="card-img-top"
+              alt="Blog Image"
+            /> -->
+            
+            <div class="card-body">
+              <!-- <h5 class="card-title"><%= blog.blogName %></h5> -->
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= blog.createdBy %></li>
+                <li class="list-group-item">
+                  <%= blog.createdAt.toDateString() %>
+                </li>
+              </ul>
+              <p class="card-text"><%= blog.description %></p>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password:</label>
-            <input type="password" id="password" name="password" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-          </div>
-          <div class="d-grid gap-2 col-6 mx-auto">
-            <input type="submit" value="Sign Up" class="btn btn-primary">
-          </div>
-        </form>
-        <p class="text-center mt-3">Already have an account? <a href="/login">Log In</a></p>
+        </div>
       </div>
+    </div>
 <%- include('footer') -%>

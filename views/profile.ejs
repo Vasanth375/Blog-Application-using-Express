@@ -1,0 +1,61 @@
+<%- include('header') -%>
+    <!-- Page Header-->
+    <header
+      class="masthead"
+      style="background-image: url('../assets/img/home-bg.jpg')"
+    >
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading">
+              <h1>BlogSphere</h1>
+              <span class="subheading">Boundless Knowledge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content-->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- User Information -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">User Information</h5>
+              <p class="card-text">
+                <strong>Username:</strong> <%= user.username %>
+              </p>
+              <p class="card-text"><strong>Email:</strong> <%= user.email %></p>
+              <!-- Add more user details here as needed -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <!-- User Posts -->
+          <h2>User Posts</h2>
+          <% if (userPosts.length === 0) { %>
+          <p>No posts available.</p>
+          <% } else { %>
+          <ul class="list-group">
+            <% userPosts.forEach(function(post) { %>
+            <li class="list-group-item" style="margin-bottom: 30px">
+              <a href="/dashboard/view-blog?id=<%= post.id %>">
+                <h4><%= post.blogName %></h4>
+                <% if (post.description.length > 100) { %>
+                <p style="margin-top: 10px">
+                  <%= post.description.substring(0, 100) %>...
+                </p>
+                <% } else { %>
+                <p style="margin-top: 10px"><%= post.description %></p>
+                <% } %>
+              </a>
+            </li>
+            <% }); %>
+          </ul>
+
+          <% } %>
+        </div>
+      </div>
+    </div>
+<%- include('footer') -%>
