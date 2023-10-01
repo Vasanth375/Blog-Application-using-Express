@@ -1,5 +1,5 @@
 const uploaded = (req, res) => {
-  res.render("postuploaded");
+  res.render("postUploaded");
 };
 
 module.exports = uploaded;
