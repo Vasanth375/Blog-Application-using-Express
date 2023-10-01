@@ -10,7 +10,7 @@ const profile_display = async (req, res) => {
   //   console.log(email);
 
   const currUserBlogs = await blog.find({ createdBy: username });
-  console.log(currUserBlogs);
+  // console.log(currUserBlogs);
   res.render("profile", {
     user: { username: username, email: email },
     userPosts: currUserBlogs,

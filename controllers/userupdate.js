@@ -61,7 +61,7 @@ const updateDB = async (req, res) => {
         }
       );
 
-      console.log(updateddata);
+      // console.log(updateddata);
       // res.send("Blog updated successfully.");
       res.redirect("/dashboard/post");
     } catch (error) {

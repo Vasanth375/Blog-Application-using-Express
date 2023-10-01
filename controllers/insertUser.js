@@ -6,7 +6,7 @@ async function run(myname, myemail, mypassword) {
     email: myemail,
     password: mypassword,
   });
-  console.log(insertUser);
+  // console.log(insertUser);
 }
 
 module.exports = run
