@@ -23,6 +23,7 @@ const createpost = (req, res) => {
   upload(req, res, (err) => {
     if (err) {
       console.log("Error:", err);
+      return res.status(500).send("Error uploading the image.");
     } else {
       const newImage = new blogSchema({
         blogName: req.body.title,
@@ -39,13 +40,12 @@ const createpost = (req, res) => {
         .save()
         .then(() => {
           console.log("Blog Successfully Uploaded");
+          res.redirect("/dashboard/successUploaded");
           // const a = true;
         })
         .catch(() => console.log("Error"));
     }
   });
-
-  res.redirect("/dashboard/successUploaded");
 };
 
 module.exports = { createpost, upload };
