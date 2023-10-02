@@ -11,6 +11,7 @@ const profile_display = async (req, res) => {
 
   const currUserBlogs = await blog.find({ createdBy: username });
   // console.log(currUserBlogs);
+  console.log("In profile page");
   res.render("profile", {
     user: { username: username, email: email },
     userPosts: currUserBlogs,

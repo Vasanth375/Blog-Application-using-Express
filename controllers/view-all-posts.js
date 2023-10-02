@@ -10,7 +10,7 @@ const view_all_post = async (req, res) => {
   });
   // to display newly created blog in the first place
   blogs.reverse();
-
+  console.log("In all posts page");
   // res.set('Content-Type', 'text/html'); // Change 'image/jpeg' to the correct content type
   res.render("viewPosts", { blogs: blogs, isExist: blogs.length !== 0 });
 };

@@ -40,6 +40,7 @@ const postLogin = async (req, res) => {
       // res.json({ access: access_token });
       req.session.isAuth = true;
       req.session.username = username;
+      console.log("In login page");
       res.redirect("/dashboard"); // Use absolute path for the redirect
     } else {
       res.redirect("/login"); // Use absolute path for the redirect
