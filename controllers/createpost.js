@@ -39,8 +39,8 @@ const createpost = (req, res) => {
       newImage
         .save()
         .then(() => {
-          console.log("Blog Successfully Uploaded");
           res.redirect("/dashboard/successUploaded");
+          console.log("Blog Successfully Uploaded");
           // const a = true;
         })
         .catch(() => console.log("Error"));
