@@ -82,7 +82,6 @@ const home = require("./routes/home");
 const signup = require("./routes/signup");
 const dashboard = require("./routes/dashboard");
 const posts = require("./routes/posts");
-const createpost = require("./routes/createpost");
 const logout = require("./routes/logout");
 const postuploaded = require("./routes/postuploaded");
 const view_all_posts = require("./routes/view-all-posts");
